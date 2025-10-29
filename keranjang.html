@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce Website - Shopping Cart | Codehal</title>
+    <link rel="stylesheet" href="css/keranjang.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <header>
+        <a href="index.html">
+            <img src="ChatGPT_Image_24_Apr_2025__15.15.59-removebg-preview.png" alt="logo" />
+        </a>
+
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li>
+                <a href="#popular">Popular</a>
+                <span class="nav-label">Hot Offer</span>
+            </li>
+            <li><a href="keranjang.html">Shop</a></li>
+            <li><a href="#recent-product">Items</a></li>
+            <li><a href="#blog">News</a></li>
+        </ul>
+
+        <div id="cart-icon">
+            <i class="ri-shopping-bag-line"></i>
+            <span class="cart-item-count"></span>
+        </div>
+    </header>
+
+    <div class="cart">
+        <h2 class="cart-title">Your Cart</h2>
+        <div class="cart-content">
+            <!-- <div class="cart-box">
+                <img src="images/product1.jpg" class="cart-img">
+                <div class="cart-detail">
+                    <h2 class="cart-product-title">Casual Black Polo</h2>
+                    <span class="cart-price">$100</span>
+                    <div class="cart-quantity">
+                        <button id="decrement">-</button>
+                        <span class="number">1</span>
+                        <button id="increment">+</button>
+                    </div>
+                </div>
+                <i class="ri-delete-bin-line cart-remove"></i>
+            </div> -->
+        </div>
+        <div class="total">
+            <div class="total-title">Total</div>
+            <div class="total-price">$0</div>
+        </div>
+        <button class="btn-buy">Buy Now</button>
+        <i class="ri-close-line" id="cart-close"></i>
+    </div>
+
+    <script>
+        document.querySelector('.btn-buy').addEventListener('click', function() {
+            // semua produk dari keranjang
+            const cartBoxes = document.querySelectorAll('.cart-box');
+            // Initialize variables
+            let message = "Order Details:\n";
+            let total = 0;
+
+            // Loop through cart items
+            cartBoxes.forEach(box => {
+                const title = box.querySelector('.cart-product-title').innerText;
+                const price = box.querySelector('.cart-price').innerText;
+                const quantity = box.querySelector('.number').innerText;
+
+                message += `- ${title} (${price}) x ${quantity}\n`;
+                total += parseFloat(price.replace('$', '').replace(',', '')) * parseInt(quantity);
+            });
+
+            message += `\nTotal: $${total.toFixed(2)}\n`;
+            message += "Are both items currently available/in stock? I want to make sure before making the payment. Also, could you please let me know what payment methods are accepted? (Bank transfer, e-wallet, credit/debit card, etc.) Additionally, how long does shipping usually take, and do you provide tracking information once the order is sent? Please also let me know if there are any additional charges such as shipping fees or taxes. I'm looking forward to your response so I can proceed with the order. Thank you!";
+
+            const encodedMessage = encodeURIComponent(message);
+            const phoneNumber = "6287716295356";
+
+            // Open WhatsApp
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+        }); // This closing bracket was missing
+    </script>
+
+    <section class="shop">
+        <h1 class="section-title">Shop</h1>
+        <div class="product-content">
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="images/jket1.png">
+                </div>
+                <h2 class="product-title">Camping Jacket</h2>
+                <div class="price-and-cart">
+                    <span class="price">$54</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="images/botol1.png">
+                </div>
+                <h2 class="product-title">Camping Botle</h2>
+                <div class="price-and-cart">
+                    <span class="price">$28</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="images/ham1.png">
+                </div>
+                <h2 class="product-title">Hammock</h2>
+                <div class="price-and-cart">
+                    <span class="price">$42</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="images/shoes2.png">
+                </div>
+                <h2 class="product-title">Camping Shoes</h2>
+                <div class="price-and-cart">
+                    <span class="price">$50</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="images/tnda2.png">
+                </div>
+                <h2 class="product-title">Camping Tents</h2>
+                <div class="price-and-cart">
+                    <span class="price">$28</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="images/jket3.png">
+                </div>
+                <h2 class="product-title">Camping Jacket</h2>
+                <div class="price-and-cart">
+                    <span class="price">$31</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="images/sbag1.png">
+                </div>
+                <h2 class="product-title">Sleeping Bag</h2>
+                <div class="price-and-cart">
+                    <span class="price">$85</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="images/tnda4.png">
+                </div>
+                <h2 class="product-title">Camping Tents</h2>
+                <div class="price-and-cart">
+                    <span class="price">$79</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="images/shoes1.png">
+                </div>
+                <h2 class="product-title">Camping Shoes</h2>
+                <div class="price-and-cart">
+                    <span class="price">$46</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="images/jket4.png">
+                </div>
+                <h2 class="product-title">Camping Jacket</h2>
+                <div class="price-and-cart">
+                    <span class="price">$55</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="images/shoes3.png">
+                </div>
+                <h2 class="product-title">Camping Shoes</h2>
+                <div class="price-and-cart">
+                    <span class="price">$44</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="images/tas1.png">
+                </div>
+                <h2 class="product-title">Camping Bag</h2>
+                <div class="price-and-cart">
+                    <span class="price">$78</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="images/jket2.png">
+                </div>
+                <h2 class="product-title">Camping Jacket</h2>
+                <div class="price-and-cart">
+                    <span class="price">$67</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="images/tracking2.png">
+                </div>
+                <h2 class="product-title">Tracking Pole</h2>
+                <div class="price-and-cart">
+                    <span class="price">$26</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="images/tas4.png">
+                </div>
+                <h2 class="product-title">Camping Bag</h2>
+                <div class="price-and-cart">
+                    <span class="price">$76</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="images/tnda1.png">
+                </div>
+                <h2 class="product-title">Camping Tents</h2>
+                <div class="price-and-cart">
+                    <span class="price">$99</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="images/tas2.png">
+                </div>
+                <h2 class="product-title">Camping Bag</h2>
+                <div class="price-and-cart">
+                    <span class="price">$69</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="images/tnda3.png">
+                </div>
+                <h2 class="product-title">Camping Tents</h2>
+                <div class="price-and-cart">
+                    <span class="price">$96</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="images/sbag2.png">
+                </div>
+                <h2 class="product-title">Slepping Bag</h2>
+                <div class="price-and-cart">
+                    <span class="price">$88</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="images/tracking1.png">
+                </div>
+                <h2 class="product-title">Tracking Pole</h2>
+                <div class="price-and-cart">
+                    <span class="price">$24</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="images/tas3.png">
+                </div>
+                <h2 class="product-title">Camping Bag</h2>
+                <div class="price-and-cart">
+                    <span class="price">$65</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="./images/kompas1.png">
+                </div>
+                <h2 class="product-title">Compas</h2>
+                <div class="price-and-cart">
+                    <span class="price">$18</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="./images/portabel1.png">
+                </div>
+                <h2 class="product-title">Portabel Stove</h2>
+                <div class="price-and-cart">
+                    <span class="price">$9</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="./images/portabel2.png">
+                </div>
+                <h2 class="product-title">Portable Frying Pan</h2>
+                <div class="price-and-cart">
+                    <span class="price">$14</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--==footer===================================-->
+    <footer>
+        <div class="footer-container">
+
+            <!--*company-box*-->
+            <div class="footer-company-box">
+                <!--logo-->
+                <a href="#h" class="footer-logo">
+                    <img src="ChatGPT_Image_24_Apr_2025__15.15.59-removebg-preview.png" alt="logo" />
+                </a>
+                <!--details-->
+                <p>Welcome to Wildnest, your source for the best camping and hiking gear! Find quality outdoor gear for your adventures.</p>
+                <!--social-->
+                <div class="footer-social">
+                    <!--facebook-->
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" width="1em" viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
+                    </a>
+                    <!--insta-->
+                    <a href="https://www.instagram.com/_.wildnest?igsh=MXRiYTIwYWl4YXNqdg==">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="1em" width="1em"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+                    </a>
+                    <!--twitter-->
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+                    </a>
+                    <!--youtube-->
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" height="1em" width="1em"><path d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!--*links-->
+            <div class="footer-link-box">
+                <strong>Main Link's</strong>
+                <ul>
+                    <li><a href="#index.html">Home</a></li>
+                    <li><a href="#popular">Popular</a></li>
+                    <li><a href="keranjang.html">Shop</a></li>
+                    <li><a href="#recent-product">Items</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                </ul>
+            </div>
+
+            <!--*links-->
+            <div class="footer-link-box">
+                <strong>Social Link's</strong>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="https://www.instagram.com/_.wildnest?igsh=MXRiYTIwYWl4YXNqdg==">Instagram</a></li>
+                    <li><a href="#">Youtube</a></li>
+                </ul>
+            </div>
+
+            <!--*subscribe*-->
+            <div class="footer-subscribe">
+                <strong>Send Your Review</strong>
+                <p>We really appreciate your opinion! If you have any criticism, suggestions, or feedback, please feel free to send it to us. Thank you for your support!</p>
+                <!--box-->
+                <form class="subscribe-box">
+                    <input type="email" placeholder="Example@gmail.com" name="email" required/>
+                    <button>Send</button>
+                </form>
+            </div>
+
+        </div>
+
+        <!--*bottom-->
+        <div class="footer-bottom">
+            <span>Made BY WILDNEST</span>
+            <span>© Copyright 2025 || WILDNEST</span>
+        </div>
+    </footer>
+
+    <script src="keranjang.js"></script>
+</body>
+
+</html>
